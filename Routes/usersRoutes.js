@@ -16,13 +16,13 @@ router.get('/api/allUsers', async (req, res) => {
 // the main for database
 router.post('/api/allUsers/new', (req, res) => {
    console.log(req.body);
-
    const newUser = new UsersItem(req.body)
-
-   newUser
-       .save()
-       .then((result) => res.json(result))
-       .catch((err) => res.status(400).json({success: false, err}))
+   try {
+      const newUserToMade = newUser.save()
+      res.json(newUserToMade);
+   } catch (err) {
+      res.status(500).json(err);
+   }
 });
 
 //for the testing purposes
@@ -55,7 +55,7 @@ router.delete('/api/allUsers/delete/:id', async (req, res) => {
 //update data
 
 router.put('/api/allUsers/edit/:id', async (req, res) => {
-   console.log("req body",req.body)
+   console.log("req body", req.body)
    try {
       const updatingUser = await UsersItem.findByIdAndUpdate({_id: req.params.id},
           req.body)
