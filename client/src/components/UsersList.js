@@ -11,12 +11,14 @@ class UsersList extends Component {
           <div className={"users__list-container"}>
              <button onClick={() => this.props.getUsers()}
                      type={"button"}
-                     className={"btn btn-info"}> Visi vartotojai </button>
+                     className={"btn btn-info"}> Visi vartotojai
+             </button>
              <div className={"items-container"}>
                 {this.props.allUsers.map((oneUser) => (
-                    <UsersItem  key={oneUser._id}
-                        onDelete={this.props.onDelete}
-                                oneUser={oneUser}
+                    <UsersItem key={oneUser._id}
+                               onGetUsers={this.props.getUsers}
+                               onDelete={this.props.onDelete}
+                               oneUser={oneUser}
                     />
                 ))}
              </div>

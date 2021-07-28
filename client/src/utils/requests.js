@@ -32,3 +32,15 @@ export const deleteUser = async (dataId) => {
       console.log(err.message)
    }
 }
+
+//edit selected data
+
+export const editUser = async (id, body) => {
+   try {
+      const res = await axios.put(`${baseUrl}/api/allUsers/edit/${id}`, body)
+      console.log(res.data)
+      return res.data;
+   } catch (err) {
+      console.log(err.message)
+   }
+}

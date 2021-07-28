@@ -50,7 +50,7 @@ class App extends Component {
       console.log(postResult)
       if (postResult) {
          await this.getAllUsers()
-         await toast.success("Useris buvo pridėtas į sąrašą")
+         await toast.success("Vartotojas buvo pridėtas į sąrašą")
          event.target.value = '';
          await this.props.history.push('/');
       }
@@ -60,7 +60,7 @@ class App extends Component {
       const deleteResult = await deleteUser(dataId)
       if (deleteResult) {
          await this.getAllUsers();
-         await toast.success("Useris buvo ištrintas iš sąrašo")
+         await toast.success("Vartotojas buvo ištrintas iš sąrašo")
       }
    };
 
