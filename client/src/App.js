@@ -5,9 +5,8 @@ import {Route, Switch} from 'react-router-dom';
 import './App.css';
 import {getAllUsersData} from "./utils/requests"
 
-
 import NavBar from "./components/Navbar";
-
+import Footer from "./components/Footer";
 import UsersList from "./components/UsersList";
 
 
@@ -52,7 +51,7 @@ class App extends Component {
                 {/*)}>*/}
                 {/*</Route>*/}
              </Switch>
-             {/*<Footer/>*/}
+             <Footer/>
           </div>
       )
 
