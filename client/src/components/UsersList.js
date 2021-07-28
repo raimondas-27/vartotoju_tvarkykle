@@ -6,6 +6,7 @@ class UsersList extends Component {
    state = {}
 
    render() {
+      if (!this.props.allUsers.length) return <h2> Neaptiktas nė vienas useris, prašau įkelti bentą vieną: </h2>
       return (
           <div className={"users__list-container"}>
              <button onClick={() => this.props.getUsers()}
