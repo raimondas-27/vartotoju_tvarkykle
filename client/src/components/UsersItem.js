@@ -22,7 +22,7 @@ class UsersItem extends Component {
                    </button>
                    <button
                            type="button"
-                           className="btn btn-danger">Istrinti
+                           className="btn btn-danger">Ištrinti
                    </button>
                 </div>
              </div>

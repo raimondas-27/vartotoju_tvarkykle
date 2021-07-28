@@ -11,3 +11,13 @@ export const getAllUsersData = async () => {
       console.log(err);
    }
 };
+
+//post new data
+export const postNewUser = async (formData) => {
+   try {
+      const res = await axios.post(`${baseUrl}/api/allUsers/new`, formData)
+      return res.data
+   } catch (err) {
+      console.log(err.message)
+   }
+}

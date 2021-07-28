@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {ToastContainer, toast} from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css"
-import {Route, Switch} from 'react-router-dom';
+import {Route, Switch, withRouter} from 'react-router-dom';
 import './App.css';
-import {getAllUsersData} from "./utils/requests"
+import {getAllUsersData, postNewUser} from "./utils/requests"
 
 import NavBar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -16,9 +16,15 @@ class App extends Component {
       super(props);
 
       this.state = {
+
          allUsers: [],
 
-
+         addingData: {
+            name: "",
+            age: "",
+            email: "",
+            password: "",
+         },
       }
    }
 
@@ -31,6 +37,24 @@ class App extends Component {
       console.log(result)
       this.setState({allUsers: result});
    };
+
+   handleChangeAfterAdding = (event) => {
+      const formDataCopy = {...this.state.addingData};
+      formDataCopy[event.target.name] = event.target.value;
+      this.setState({addingData: formDataCopy});
+   }
+
+   handleData = async (event) => {
+      event.preventDefault();
+      const postResult = await postNewUser(this.state.addingData)
+      console.log(postResult)
+      if (postResult) {
+         await this.getAllUsers()
+         await toast.success("Useris buvo pridėtas į sąrašą ")
+         event.target.value = '';
+         await this.props.history.push('/');
+      }
+   }
 
    render() {
 
@@ -47,7 +71,9 @@ class App extends Component {
                 )}>
                 </Route>
                 <Route path="/formToCreateUser" render={(props) => (
-                    <UsersForm {...props}
+                    <UsersForm onHandleData={this.handleData}
+                                onHandleChange={this.handleChangeAfterAdding}
+                               {...props}
                     />
                 )}>
                 </Route>
@@ -61,4 +87,4 @@ class App extends Component {
 
 }
 
-export default App;
+export default withRouter(App);

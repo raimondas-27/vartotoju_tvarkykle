@@ -8,7 +8,7 @@ router.get('/api/allUsers', async (req, res) => {
       const allOrders = await UsersItem.find()
       res.json(allOrders);
    } catch (err) {
-      res.status(500).json('internal error');
+      res.status(500).json(err);
    }
 });
 

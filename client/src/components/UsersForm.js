@@ -5,33 +5,31 @@ class UsersForm extends Component {
    constructor() {
       super();
 
-      this.state = {
-
-      }
+      this.state = {}
    }
 
    render() {
       return (
           <div>
-             <form
+             <form onSubmit={this.props.onHandleData}
+                   onChange={this.props.onHandleChange}
                    className={"form-container"}>
-
-                <div className="form-group">
-                   <label htmlFor="name">Įveskite vartotojo vardą:</label>
-                   <input type="text"
-                          name="name"
-                          className="form-control"
-                          id="name"
-                          placeholder="Vardas"
+                <div className={"form-group"}>
+                   <label htmlFor={"name"}>Įveskite vartotojo vardą:</label>
+                   <input type={"text"}
+                          name={"name"}
+                          className={"form-control"}
+                          id={"name"}
+                          placeholder={"Vardas"}
                    />
                 </div>
-                <div className="form-group">
-                   <label htmlFor="price"> Įveskite vartotojo amžių:</label>
-                   <input type="text"
-                          name="age"
-                          className="form-control"
-                          id="age"
-                          placeholder="Amžius"/>
+                <div className={"form-group"}>
+                   <label htmlFor={"price"}> Įveskite vartotojo amžių:</label>
+                   <input type={"text"}
+                          name={"age"}
+                          className={"form-control"}
+                          id={"age"}
+                          placeholder={"Amžius"}/>
                 </div>
                 <div className="form-group">
                    <label htmlFor="quantity">Įveskite vartotojo el. paštą:</label>
@@ -49,7 +47,7 @@ class UsersForm extends Component {
                           id="password"
                           placeholder="Slaptažodis"/>
                 </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <button type="submit" className="btn btn-primary">Išsaugoti</button>
              </form>
           </div>
       );
