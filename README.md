@@ -26,3 +26,4 @@ Simple users backend api. We use mongo for database.
 -dotenv
 -mongoose
 -express
+-nodemon
