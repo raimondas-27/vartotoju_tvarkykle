@@ -6,15 +6,16 @@ class UsersList extends Component {
    state = {}
 
    render() {
-
       return (
-          <div className={"container"}>
+          <div className={"users__list-container"}>
              <button onClick={() => this.props.getUsers()}
                      type={"button"}
                      className={"btn btn-info"}> Visi vartotojai </button>
              <div className={"items-container"}>
                 {this.props.allUsers.map((oneUser) => (
-                    <UsersItem oneUser={oneUser}
+                    <UsersItem  key={oneUser._id}
+                        onDelete={this.props.onDelete}
+                                oneUser={oneUser}
                     />
                 ))}
              </div>

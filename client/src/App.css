@@ -1,3 +1,7 @@
+.users__list-container {
+    padding: 15px;
+}
+
 .items-container {
     display: flex;
     flex-wrap: wrap;

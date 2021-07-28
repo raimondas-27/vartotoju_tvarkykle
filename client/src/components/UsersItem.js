@@ -17,10 +17,11 @@ class UsersItem extends Component {
                    <h6 className="card-subtitle mb-2 mt-4 text-muted">Amžius : {this.props.oneUser.age}</h6>
                    <p className="card-text">El.paštas : {this.props.oneUser.email}</p>
                    <p className="card-text"> Slaptažodis : {this.props.oneUser.password}</p>
-                   <button type="button"
+                   <button
+                       type="button"
                            className="btn btn-warning">Redaguoti
                    </button>
-                   <button
+                   <button onClick={() => this.props.onDelete(this.props.oneUser._id)}
                            type="button"
                            className="btn btn-danger">Ištrinti
                    </button>

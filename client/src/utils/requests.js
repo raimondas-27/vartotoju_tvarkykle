@@ -21,3 +21,14 @@ export const postNewUser = async (formData) => {
       console.log(err.message)
    }
 }
+
+//delete selected data
+
+export const deleteUser = async (dataId) => {
+   try {
+      const res = await axios.delete(`${baseUrl}/api/allUsers/delete/${dataId}`)
+      return res.data
+   } catch (err) {
+      console.log(err.message)
+   }
+}

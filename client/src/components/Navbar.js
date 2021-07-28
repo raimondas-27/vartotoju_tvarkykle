@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 class NavBar extends Component {
    state = {}
-
    render() {
       return (
           <div>

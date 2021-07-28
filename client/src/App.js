@@ -3,7 +3,7 @@ import {ToastContainer, toast} from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css"
 import {Route, Switch, withRouter} from 'react-router-dom';
 import './App.css';
-import {getAllUsersData, postNewUser} from "./utils/requests"
+import {deleteUser, getAllUsersData, postNewUser} from "./utils/requests"
 
 import NavBar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -44,20 +44,27 @@ class App extends Component {
       this.setState({addingData: formDataCopy});
    }
 
-   handleData = async (event) => {
+   addUser = async (event) => {
       event.preventDefault();
       const postResult = await postNewUser(this.state.addingData)
       console.log(postResult)
       if (postResult) {
          await this.getAllUsers()
-         await toast.success("Useris buvo pridėtas į sąrašą ")
+         await toast.success("Useris buvo pridėtas į sąrašą")
          event.target.value = '';
          await this.props.history.push('/');
       }
    }
 
-   render() {
+   deleteUser = async (dataId) => {
+      const deleteResult = await deleteUser(dataId)
+      if (deleteResult) {
+         await this.getAllUsers();
+         await toast.success("Useris buvo ištrintas iš sąrašo")
+      }
+   };
 
+   render() {
       return (
           <div>
              <ToastContainer/>
@@ -66,12 +73,13 @@ class App extends Component {
                 <Route exact path="/" render={(props) => (
                     <UsersList allUsers={this.state.allUsers}
                                getUsers={this.getAllUsers}
+                               onDelete={this.deleteUser}
                                {...props}
                     />
                 )}>
                 </Route>
                 <Route path="/formToCreateUser" render={(props) => (
-                    <UsersForm onHandleData={this.handleData}
+                    <UsersForm onAddUser={this.addUser}
                                 onHandleChange={this.handleChangeAfterAdding}
                                {...props}
                     />
@@ -81,10 +89,7 @@ class App extends Component {
              <Footer/>
           </div>
       )
-
    }
-
-
 }
 
 export default withRouter(App);

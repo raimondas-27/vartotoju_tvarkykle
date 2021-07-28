@@ -4,14 +4,12 @@ import "../App.css"
 class UsersForm extends Component {
    constructor() {
       super();
-
       this.state = {}
    }
-
    render() {
       return (
           <div>
-             <form onSubmit={this.props.onHandleData}
+             <form onSubmit={this.props.onAddUser}
                    onChange={this.props.onHandleChange}
                    className={"form-container"}>
                 <div className={"form-group"}>
