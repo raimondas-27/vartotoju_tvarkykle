@@ -24,5 +24,8 @@ app.use(cors());
 
 //Routes
 
+const usersRoutes = require("./Routes/usersRoutes");
+app.use("/", usersRoutes)
+
 
 app.listen(PORT, console.log(`Back end online on port ${PORT}`));

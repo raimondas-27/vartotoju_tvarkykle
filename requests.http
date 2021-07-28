@@ -1,0 +1,19 @@
+### get all users
+
+GET http://localhost:4000/api/allUsers
+
+### add new user to list
+
+POST http://localhost:4000/api/allUsers/new
+Content-Type: application/json
+
+{
+  "name": "Agne",
+  "age": 23,
+  "email": "agne@agne.lt",
+  "password": "secret124"
+}
+
+### delete user from list
+
+DELETE http://localhost:4000/api/allUsers/delete/6100febc1766b057f1d8388b
