@@ -8,6 +8,7 @@ import {getAllUsersData} from "./utils/requests"
 import NavBar from "./components/Navbar";
 import Footer from "./components/Footer";
 import UsersList from "./components/UsersList";
+import UsersForm from "./components/UsersForm";
 
 
 class App extends Component {
@@ -45,11 +46,11 @@ class App extends Component {
                     />
                 )}>
                 </Route>
-                {/*<Route path="formToCreateGoodOrService" render={(props) => (*/}
-                {/*    <UsersForm {...props}*/}
-                {/*    />*/}
-                {/*)}>*/}
-                {/*</Route>*/}
+                <Route path="/formToCreateUser" render={(props) => (
+                    <UsersForm {...props}
+                    />
+                )}>
+                </Route>
              </Switch>
              <Footer/>
           </div>

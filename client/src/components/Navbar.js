@@ -19,7 +19,7 @@ class NavBar extends Component {
                          <Link className="nav-link" to="/">Visi vartotojai <span className="sr-only">(current)</span></Link>
                       </li>
                       <li className="nav-item">
-                         <Link className="nav-link" to="/formToCreateGoodOrService">Forma naujam vartotojui</Link>
+                         <Link className="nav-link" to="/formToCreateUser">Forma naujam vartotojui</Link>
                       </li>
                    </ul>
                 </div>
