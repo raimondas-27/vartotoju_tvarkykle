@@ -47,7 +47,6 @@ class App extends Component {
    addUser = async (event) => {
       event.preventDefault();
       const postResult = await postNewUser(this.state.addingData)
-      console.log(postResult)
       if (postResult) {
          await this.getAllUsers()
          await toast.success("Vartotojas buvo pridėtas į sąrašą")
